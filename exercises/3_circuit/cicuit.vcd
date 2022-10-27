@@ -1,0 +1,50 @@
+$date
+	Fri Oct 28 02:56:00 2022
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module circuit_tb $end
+$var wire 1 ! z $end
+$var reg 1 " x $end
+$var reg 1 # y $end
+$scope module uut $end
+$var wire 1 $ not_x $end
+$var wire 1 % not_x_and_not_y $end
+$var wire 1 & not_y $end
+$var wire 1 " x $end
+$var wire 1 ' x_and_y $end
+$var wire 1 # y $end
+$var wire 1 ! z $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0'
+1&
+1%
+1$
+0#
+0"
+1!
+$end
+#10000
+0!
+0%
+0&
+1#
+#20000
+1&
+0$
+0#
+1"
+#30000
+1!
+0&
+1'
+1#
+#40000
