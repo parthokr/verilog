@@ -1,0 +1,66 @@
+#! /opt/homebrew/Cellar/icarus-verilog/11.0/bin/vvp
+:ivl_version "11.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/system.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/v2005_math.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/va_math.vpi";
+S_0x12fe086a0 .scope module, "comb1" "comb1" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "D";
+    .port_info 1 /INPUT 1 "X";
+    .port_info 2 /INPUT 1 "A";
+    .port_info 3 /OUTPUT 1 "L";
+o0x120008040 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x12fe18e40 .functor NOT 1, o0x120008040, C4<0>, C4<0>, C4<0>;
+o0x1200080a0 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x12fe199a0 .functor NOT 1, o0x1200080a0, C4<0>, C4<0>, C4<0>;
+L_0x12fe19a50 .functor AND 1, L_0x12fe18e40, L_0x12fe199a0, C4<1>, C4<1>;
+o0x120008010 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x12fe19b80 .functor AND 1, L_0x12fe19a50, o0x120008010, C4<1>, C4<1>;
+L_0x12fe19c50 .functor NOT 1, o0x120008040, C4<0>, C4<0>, C4<0>;
+L_0x12fe19d50 .functor AND 1, L_0x12fe19c50, o0x1200080a0, C4<1>, C4<1>;
+L_0x12fe19e40 .functor AND 1, L_0x12fe19d50, o0x120008010, C4<1>, C4<1>;
+L_0x12fe19f70 .functor OR 1, L_0x12fe19b80, L_0x12fe19e40, C4<0>, C4<0>;
+L_0x12fe1a060 .functor NOT 1, o0x1200080a0, C4<0>, C4<0>, C4<0>;
+L_0x12fe1a120 .functor AND 1, o0x120008040, L_0x12fe1a060, C4<1>, C4<1>;
+L_0x12fe1a190 .functor NOT 1, o0x120008010, C4<0>, C4<0>, C4<0>;
+L_0x12fe1a260 .functor AND 1, L_0x12fe1a120, L_0x12fe1a190, C4<1>, C4<1>;
+L_0x12fe1a350 .functor OR 1, L_0x12fe19f70, L_0x12fe1a260, C4<0>, C4<0>;
+L_0x12fe1a4b0 .functor NOT 1, o0x1200080a0, C4<0>, C4<0>, C4<0>;
+L_0x12fe1a5a0 .functor AND 1, o0x120008040, L_0x12fe1a4b0, C4<1>, C4<1>;
+L_0x12fe1a440 .functor AND 1, L_0x12fe1a5a0, o0x120008010, C4<1>, C4<1>;
+L_0x12fe1a790 .functor OR 1, L_0x12fe1a350, L_0x12fe1a440, C4<0>, C4<0>;
+L_0x12fe1a8d0 .functor AND 1, o0x120008040, o0x1200080a0, C4<1>, C4<1>;
+L_0x12fe1a690 .functor AND 1, L_0x12fe1a8d0, o0x120008010, C4<1>, C4<1>;
+L_0x12fe1aa60 .functor OR 1, L_0x12fe1a790, L_0x12fe1a690, C4<0>, C4<0>;
+v0x12fe08870_0 .net "A", 0 0, o0x120008010;  0 drivers
+v0x12fe188e0_0 .net "D", 0 0, o0x120008040;  0 drivers
+v0x12fe18980_0 .net "L", 0 0, L_0x12fe1aa60;  1 drivers
+v0x12fe18a10_0 .net "X", 0 0, o0x1200080a0;  0 drivers
+v0x12fe18ab0_0 .net *"_ivl_0", 0 0, L_0x12fe18e40;  1 drivers
+v0x12fe18ba0_0 .net *"_ivl_10", 0 0, L_0x12fe19d50;  1 drivers
+v0x12fe18c50_0 .net *"_ivl_12", 0 0, L_0x12fe19e40;  1 drivers
+v0x12fe18d00_0 .net *"_ivl_14", 0 0, L_0x12fe19f70;  1 drivers
+v0x12fe18db0_0 .net *"_ivl_16", 0 0, L_0x12fe1a060;  1 drivers
+v0x12fe18ec0_0 .net *"_ivl_18", 0 0, L_0x12fe1a120;  1 drivers
+v0x12fe18f70_0 .net *"_ivl_2", 0 0, L_0x12fe199a0;  1 drivers
+v0x12fe19020_0 .net *"_ivl_20", 0 0, L_0x12fe1a190;  1 drivers
+v0x12fe190d0_0 .net *"_ivl_22", 0 0, L_0x12fe1a260;  1 drivers
+v0x12fe19180_0 .net *"_ivl_24", 0 0, L_0x12fe1a350;  1 drivers
+v0x12fe19230_0 .net *"_ivl_26", 0 0, L_0x12fe1a4b0;  1 drivers
+v0x12fe192e0_0 .net *"_ivl_28", 0 0, L_0x12fe1a5a0;  1 drivers
+v0x12fe19390_0 .net *"_ivl_30", 0 0, L_0x12fe1a440;  1 drivers
+v0x12fe19520_0 .net *"_ivl_32", 0 0, L_0x12fe1a790;  1 drivers
+v0x12fe195b0_0 .net *"_ivl_34", 0 0, L_0x12fe1a8d0;  1 drivers
+v0x12fe19660_0 .net *"_ivl_36", 0 0, L_0x12fe1a690;  1 drivers
+v0x12fe19710_0 .net *"_ivl_4", 0 0, L_0x12fe19a50;  1 drivers
+v0x12fe197c0_0 .net *"_ivl_6", 0 0, L_0x12fe19b80;  1 drivers
+v0x12fe19870_0 .net *"_ivl_8", 0 0, L_0x12fe19c50;  1 drivers
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "hello.v";

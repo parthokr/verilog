@@ -1,0 +1,101 @@
+#! /opt/homebrew/Cellar/icarus-verilog/11.0/bin/vvp
+:ivl_version "11.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/system.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/v2005_math.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/va_math.vpi";
+S_0x151b04350 .scope module, "comb1_tb" "comb1_tb" 2 3;
+ .timescale -9 -12;
+v0x151b15850_0 .var "A", 0 0;
+v0x151b158e0_0 .var "D", 0 0;
+v0x151b15970_0 .net "L", 0 0, L_0x151b16b20;  1 drivers
+v0x151b15a00_0 .var "X", 0 0;
+S_0x151b044d0 .scope module, "uut" "comb1" 2 9, 3 1 0, S_0x151b04350;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "D";
+    .port_info 1 /INPUT 1 "X";
+    .port_info 2 /INPUT 1 "A";
+    .port_info 3 /OUTPUT 1 "L";
+L_0x151b15ab0 .functor NOT 1, v0x151b158e0_0, C4<0>, C4<0>, C4<0>;
+L_0x151b15b80 .functor NOT 1, v0x151b15a00_0, C4<0>, C4<0>, C4<0>;
+L_0x151b15c30 .functor AND 1, L_0x151b15ab0, L_0x151b15b80, C4<1>, C4<1>;
+L_0x151b15d40 .functor AND 1, L_0x151b15c30, v0x151b15850_0, C4<1>, C4<1>;
+L_0x151b15e50 .functor NOT 1, v0x151b158e0_0, C4<0>, C4<0>, C4<0>;
+L_0x151b15ef0 .functor AND 1, L_0x151b15e50, v0x151b15a00_0, C4<1>, C4<1>;
+L_0x151b15fa0 .functor AND 1, L_0x151b15ef0, v0x151b15850_0, C4<1>, C4<1>;
+L_0x151b160b0 .functor OR 1, L_0x151b15d40, L_0x151b15fa0, C4<0>, C4<0>;
+L_0x151b161c0 .functor NOT 1, v0x151b15a00_0, C4<0>, C4<0>, C4<0>;
+L_0x151b16300 .functor AND 1, v0x151b158e0_0, L_0x151b161c0, C4<1>, C4<1>;
+L_0x151b163f0 .functor NOT 1, v0x151b15850_0, C4<0>, C4<0>, C4<0>;
+L_0x151b16540 .functor AND 1, L_0x151b16300, L_0x151b163f0, C4<1>, C4<1>;
+L_0x151b165b0 .functor OR 1, L_0x151b160b0, L_0x151b16540, C4<0>, C4<0>;
+L_0x151b166d0 .functor NOT 1, v0x151b15a00_0, C4<0>, C4<0>, C4<0>;
+L_0x151b16740 .functor AND 1, v0x151b158e0_0, L_0x151b166d0, C4<1>, C4<1>;
+L_0x151b16660 .functor AND 1, L_0x151b16740, v0x151b15850_0, C4<1>, C4<1>;
+L_0x151b16890 .functor OR 1, L_0x151b165b0, L_0x151b16660, C4<0>, C4<0>;
+L_0x151b169a0 .functor AND 1, v0x151b158e0_0, v0x151b15a00_0, C4<1>, C4<1>;
+L_0x151b16a30 .functor AND 1, L_0x151b169a0, v0x151b15850_0, C4<1>, C4<1>;
+L_0x151b16b20 .functor OR 1, L_0x151b16890, L_0x151b16a30, C4<0>, C4<0>;
+v0x151b046f0_0 .net "A", 0 0, v0x151b15850_0;  1 drivers
+v0x151b14790_0 .net "D", 0 0, v0x151b158e0_0;  1 drivers
+v0x151b14830_0 .net "L", 0 0, L_0x151b16b20;  alias, 1 drivers
+v0x151b148e0_0 .net "X", 0 0, v0x151b15a00_0;  1 drivers
+v0x151b14980_0 .net *"_ivl_0", 0 0, L_0x151b15ab0;  1 drivers
+v0x151b14a70_0 .net *"_ivl_10", 0 0, L_0x151b15ef0;  1 drivers
+v0x151b14b20_0 .net *"_ivl_12", 0 0, L_0x151b15fa0;  1 drivers
+v0x151b14bd0_0 .net *"_ivl_14", 0 0, L_0x151b160b0;  1 drivers
+v0x151b14c80_0 .net *"_ivl_16", 0 0, L_0x151b161c0;  1 drivers
+v0x151b14d90_0 .net *"_ivl_18", 0 0, L_0x151b16300;  1 drivers
+v0x151b14e40_0 .net *"_ivl_2", 0 0, L_0x151b15b80;  1 drivers
+v0x151b14ef0_0 .net *"_ivl_20", 0 0, L_0x151b163f0;  1 drivers
+v0x151b14fa0_0 .net *"_ivl_22", 0 0, L_0x151b16540;  1 drivers
+v0x151b15050_0 .net *"_ivl_24", 0 0, L_0x151b165b0;  1 drivers
+v0x151b15100_0 .net *"_ivl_26", 0 0, L_0x151b166d0;  1 drivers
+v0x151b151b0_0 .net *"_ivl_28", 0 0, L_0x151b16740;  1 drivers
+v0x151b15260_0 .net *"_ivl_30", 0 0, L_0x151b16660;  1 drivers
+v0x151b153f0_0 .net *"_ivl_32", 0 0, L_0x151b16890;  1 drivers
+v0x151b15480_0 .net *"_ivl_34", 0 0, L_0x151b169a0;  1 drivers
+v0x151b15530_0 .net *"_ivl_36", 0 0, L_0x151b16a30;  1 drivers
+v0x151b155e0_0 .net *"_ivl_4", 0 0, L_0x151b15c30;  1 drivers
+v0x151b15690_0 .net *"_ivl_6", 0 0, L_0x151b15d40;  1 drivers
+v0x151b15740_0 .net *"_ivl_8", 0 0, L_0x151b15e50;  1 drivers
+    .scope S_0x151b04350;
+T_0 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x151b158e0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x151b15a00_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x151b15850_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x151b15850_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x151b15a00_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x151b158e0_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x151b15a00_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x151b15850_0, 0, 1;
+    %vpi_call 2 38 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+    .scope S_0x151b04350;
+T_1 ;
+    %vpi_call 2 42 "$monitor", "D=%d X=%d A=%d L=%d\012", v0x151b158e0_0, v0x151b15a00_0, v0x151b15850_0, v0x151b15970_0 {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "comb1_tb.v";
+    "./comb1.v";

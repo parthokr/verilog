@@ -1,0 +1,99 @@
+#! /opt/homebrew/Cellar/icarus-verilog/11.0/bin/vvp
+:ivl_version "11.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/system.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/v2005_math.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/va_math.vpi";
+S_0x12e6081b0 .scope module, "counter_tb" "counter_tb" 2 4;
+ .timescale -9 -12;
+v0x12e621c20_0 .var "clk", 0 0;
+v0x12e621d00_0 .net "q", 6 0, L_0x12e621fc0;  1 drivers
+v0x12e621d90_0 .var "reset", 0 0;
+S_0x12e608320 .scope module, "uut" "counter" 2 8, 3 3 0, S_0x12e6081b0;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "clk";
+    .port_info 1 /INPUT 1 "reset";
+    .port_info 2 /OUTPUT 7 "q";
+L_0x12e621fc0 .functor BUFZ 7, v0x12e621690_0, C4<0000000>, C4<0000000>, C4<0000000>;
+v0x12e621840_0 .net "clk", 0 0, v0x12e621c20_0;  1 drivers
+v0x12e6218e0_0 .net "d_temp", 6 0, L_0x12e621e80;  1 drivers
+v0x12e6219b0_0 .net "q", 6 0, L_0x12e621fc0;  alias, 1 drivers
+v0x12e621a50_0 .net "q_temp", 6 0, v0x12e621690_0;  1 drivers
+v0x12e621b30_0 .net "reset", 0 0, v0x12e621d90_0;  1 drivers
+S_0x12e60b970 .scope module, "a" "addOne" 3 10, 4 1 0, S_0x12e608320;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 7 "I";
+    .port_info 1 /OUTPUT 7 "O";
+v0x12e60c0d0_0 .net "I", 6 0, v0x12e621690_0;  alias, 1 drivers
+v0x12e621100_0 .net "O", 6 0, L_0x12e621e80;  alias, 1 drivers
+L_0x130078010 .functor BUFT 1, C4<0000001>, C4<0>, C4<0>, C4<0>;
+v0x12e6211b0_0 .net/2u *"_ivl_0", 6 0, L_0x130078010;  1 drivers
+L_0x12e621e80 .arith/sum 7, v0x12e621690_0, L_0x130078010;
+S_0x12e6212a0 .scope module, "r1" "register" 3 9, 5 1 0, S_0x12e608320;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "clk";
+    .port_info 1 /INPUT 1 "reset";
+    .port_info 2 /INPUT 7 "d";
+    .port_info 3 /OUTPUT 7 "q";
+v0x12e621520_0 .net "clk", 0 0, v0x12e621c20_0;  alias, 1 drivers
+v0x12e6215d0_0 .net "d", 6 0, L_0x12e621e80;  alias, 1 drivers
+v0x12e621690_0 .var "q", 6 0;
+v0x12e621760_0 .net "reset", 0 0, v0x12e621d90_0;  alias, 1 drivers
+E_0x12e6214e0 .event posedge, v0x12e621760_0, v0x12e621520_0;
+    .scope S_0x12e6212a0;
+T_0 ;
+    %wait E_0x12e6214e0;
+    %load/vec4 v0x12e621760_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.0, 8;
+    %pushi/vec4 0, 0, 7;
+    %store/vec4 v0x12e621690_0, 0, 7;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/vec4 v0x12e6215d0_0;
+    %store/vec4 v0x12e621690_0, 0, 7;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_0x12e6081b0;
+T_1 ;
+    %delay 10000, 0;
+    %load/vec4 v0x12e621c20_0;
+    %inv;
+    %store/vec4 v0x12e621c20_0, 0, 1;
+    %jmp T_1;
+    .thread T_1;
+    .scope S_0x12e6081b0;
+T_2 ;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v0x12e621c20_0, 0;
+    %pushi/vec4 1, 0, 1;
+    %assign/vec4 v0x12e621d90_0, 0;
+    %delay 20000, 0;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v0x12e621d90_0, 0;
+    %delay 20000, 0;
+    %delay 20000, 0;
+    %delay 20000, 0;
+    %delay 20000, 0;
+    %vpi_call 2 20 "$finish" {0 0 0};
+    %end;
+    .thread T_2;
+    .scope S_0x12e6081b0;
+T_3 ;
+    %vpi_call 2 23 "$dumpfile", "counter.vcd" {0 0 0};
+    %vpi_call 2 24 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x12e6081b0 {0 0 0};
+    %vpi_call 2 25 "$monitor", "clk = %b reset = %b q = %b", v0x12e621c20_0, v0x12e621d90_0, v0x12e621d00_0 {0 0 0};
+    %end;
+    .thread T_3;
+# The file index is used to find the file name in the following table.
+:file_names 6;
+    "N/A";
+    "<interactive>";
+    "counter_tb.v";
+    "./counter.v";
+    "./addOne.v";
+    "./register.v";

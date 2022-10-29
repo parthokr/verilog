@@ -1,7 +1,7 @@
 module decoder_2to4(
     input [1:0]A,
     input E,
-    output [3:0]Y
+    output wire [3:0]Y
 );
 
 assign Y[3] = E & A[1] & A[0];
